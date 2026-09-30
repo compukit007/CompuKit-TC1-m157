@@ -30,6 +30,44 @@ Next to this README:
 
 ---
 
+## Screenshots
+
+Photos of the real TC1 (Russian versions, so you can compare the standard
+8×16 font with the alternative 8×16alt font).
+
+### Bare version – `kaal (originele 1.57m)`
+
+| | ru (8×16) | ru_alt (8×16alt) |
+|---|---|---|
+| Testing | ![](kaal%20%28originele%201.57m%29/kaal_ru_1_test.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_alt_1_test.png) |
+| LED | ![](kaal%20%28originele%201.57m%29/kaal_ru_2_led.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_alt_2_led.png) |
+| Menu 1 | ![](kaal%20%28originele%201.57m%29/kaal_ru_3_menu.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_alt_3_menu.png) |
+| Menu 2 | ![](kaal%20%28originele%201.57m%29/kaal_ru_4_menu2.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_alt_4_menu2.png) |
+
+| Zener check (voltmeter, open circuit) | IR detector (Philips RC-6) | IR detector (Samsung) |
+|---|---|---|
+| ![](kaal%20%28originele%201.57m%29/kaal_ru_5_voltmeter.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_6_ir.png) | ![](kaal%20%28originele%201.57m%29/kaal_ru_7_ir_samsung.png) |
+
+The original IR detector decodes many protocols (NEC, Samsung, Sony, RC-5,
+RC-6, …). On the TC1 some frames show "?" (probably noise from the boost
+converter; the original firmware has no glitch filter).
+
+### TC1 interface version – `v0.2 met TC1-schermen`
+
+| | ru (8×16) | ru_alt (8×16alt) |
+|---|---|---|
+| Startup | ![](v0.2%20met%20TC1-schermen/v02_ru_1_start.png) | ![](v0.2%20met%20TC1-schermen/v02_ru_alt_1_start.png) |
+| Testing | ![](v0.2%20met%20TC1-schermen/v02_ru_2_test.png) | ![](v0.2%20met%20TC1-schermen/v02_ru_alt_2_test.png) |
+| LED | ![](v0.2%20met%20TC1-schermen/v02_ru_3_led.png) | ![](v0.2%20met%20TC1-schermen/v02_ru_alt_3_led.png) |
+| Menu | ![](v0.2%20met%20TC1-schermen/v02_ru_4_menu.png) | ![](v0.2%20met%20TC1-schermen/v02_ru_alt_4_menu.png) |
+| IR decoder (Samsung) | ![](v0.2%20met%20TC1-schermen/v02_ru_5_ir.png) | ![](v0.2%20met%20TC1-schermen/v02_ru_alt_5_ir.png) |
+
+The same red LED in holes 1 and 2 reads 1931 mV (bare) and 1933 mV (v0.2),
+and the same Samsung key gives the same code in both versions (07:02 /
+0707-02FD).
+
+---
+
 ## Changes in both versions (needed for the TC1 / LGT8F328P)
 
 **TC1 board (pins and hardware)**
@@ -175,8 +213,15 @@ Both versions are built with LTO (`-flto -mrelax`), otherwise they don't fit.
 | | Tested on a real TC1 |
 |---|---|
 | v0.2 Dutch | yes: components, capacitor + ESR, menu, IR decoder |
+| v0.2 Russian and ru_alt | yes: startup, testing screen, LED, menu, IR decoder (see screenshots) |
+| Bare version Russian and ru_alt | yes: testing screen, LED, menu, voltmeter, IR detector (see screenshots) |
 | Bare version English | yes: measuring, menu, IR detector (before the `wait.S` fix) |
-| Other languages, bare version after the `wait.S` fix | only compiled, not tested on the display |
+| v0.2 English, bare version Dutch | only compiled, not tested on the display |
+
+Not tested yet: the known problems of LGT8F328P clones listed by
+indman@EEVblog (ESR of ceramic 5–10 µF and electrolytic 1–10 µF capacitors,
+some BJTs/JFETs, common cathode diode arrays), because the parts weren't
+available. Feedback and photos are welcome.
 
 ---
 
